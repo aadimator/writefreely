@@ -1235,6 +1235,7 @@ func (p *SubmittedPost) isFontValid() bool {
 		"mono": true,
 		"wrap": true,
 		"code": true,
+		"urdu": true,
 	}
 
 	_, valid := validFonts[p.Font]

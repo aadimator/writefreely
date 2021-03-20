@@ -49,6 +49,7 @@
 						<ul style="text-align: center">
 							<li class="menu-heading">Font</li>
 							<li class="selected"><a class="font norm" href="#norm">Serif</a></li>
+							<li><a class="font urdu" href="#urdu">اردو</a></li>
 							<li><a class="font sans" href="#sans">Sans-serif</a></li>
 							<li><a class="font wrap" href="#wrap">Monospace</a></li>
 						</ul>
@@ -187,7 +188,7 @@
 
 			var http = new XMLHttpRequest();
 			var lang = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
-			lang = lang.substring(0, 2);
+			lang = font == "urdu" ? "ur" : lang.substring(0, 2);
 			var post = H.getTitleStrict(content);
 
 			var params = {
@@ -196,6 +197,8 @@
 				font: font,
 				lang: lang
 			};
+
+			console.log(params);
 			{{ if .Post.Slug }}
 			var url = "/api/collections/{{.EditCollection.Alias}}/posts/{{.Post.Id}}";
 			{{ else if .Post.Id }}
